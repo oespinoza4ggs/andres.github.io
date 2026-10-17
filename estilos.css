@@ -1,0 +1,252 @@
+/* Paleta propia (distinta a la del PDF original):
+   azul marino  #1e4d8c  -> bordes
+   azul claro   #cfe0f5  -> barras de título y pie
+   magenta      #8e2a6b  -> encabezados de sección
+   violeta      #7c3aed  -> nombres destacados
+   verde azulado #0f766e -> títulos de la columna lateral
+   lavanda      #e8eefb  -> fondo del propósito
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 12px;
+  background: #ffffff;
+  font-family: "Segoe UI", Calibri, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #222222;
+}
+
+p {
+  margin: 0 0 14px;
+}
+
+/* ---------- Página ---------- */
+.pagina {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ---------- Encabezado ---------- */
+.encabezado {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  padding: 14px 18px;
+  border: 3px solid #1e4d8c;
+  border-bottom: none;
+}
+
+.encabezado-foto {
+  flex: 0 0 auto;
+}
+
+.encabezado-foto img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1e4d8c;
+}
+
+.encabezado-datos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.encabezado-datos p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.alumno-nombre {
+  font-weight: 700;
+}
+
+.plantel {
+  text-align: right;
+}
+
+.plantel-nombre {
+  font-weight: 700;
+  font-size: 13px !important;
+}
+
+/* ---------- Barra de título ---------- */
+.titulo {
+  background: #cfe0f5;
+  padding: 10px 16px;
+  text-align: center;
+}
+
+.titulo h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #111111;
+}
+
+/* ---------- Cuerpo ---------- */
+.cuerpo {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+/* Columna principal: borde punteado */
+.principal {
+  flex: 1;
+  padding: 12px 16px 16px;
+  border: 2px dashed #1e4d8c;
+  text-align: justify;
+}
+
+.principal h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #8e2a6b;
+}
+
+.principal h2:nth-of-type(2) {
+  margin-top: 20px;
+}
+
+/* Nombres con texto rojo/subrayado en el PDF: aquí en violeta */
+.nombre-destacado {
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: underline;
+  color: #7c3aed;
+}
+
+/* Lista de directores */
+.directores {
+  margin: 0 0 14px;
+}
+
+.directores ul {
+  margin: 0;
+  padding-left: 40px;
+  text-align: left;
+}
+
+.directores li {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.directores li::marker {
+  color: #1e4d8c;
+}
+
+/* Propósito */
+.proposito {
+  background: #e8eefb;
+  padding: 6px 8px;
+}
+
+.proposito p {
+  margin: 0;
+}
+
+.proposito u {
+  text-decoration: underline;
+}
+
+/* ---------- Columna lateral ---------- */
+.lateral {
+  flex: 0 0 160px;
+  padding: 12px 12px 14px;
+  border: 2px solid #1e4d8c;
+}
+
+.lateral-bloque {
+  margin-bottom: 16px;
+}
+
+.lateral-bloque:last-child {
+  margin-bottom: 0;
+}
+
+.lateral h3 {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: underline;
+  color: #0f766e;
+}
+
+.lateral ul {
+  margin: 0;
+  padding-left: 26px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f766e;
+}
+
+.lateral li {
+  margin-bottom: 6px;
+}
+
+.lateral li::marker {
+  color: #0f766e;
+}
+
+.galeria {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.galeria img {
+  display: block;
+  width: 100%;
+  height: 64px;
+  object-fit: cover;
+}
+
+/* ---------- Pie ---------- */
+.pie {
+  background: #cfe0f5;
+  padding: 10px;
+  text-align: center;
+}
+
+.pie img {
+  height: 40px;
+  width: auto;
+}
+
+/* ---------- Pantallas angostas ---------- */
+@media (max-width: 560px) {
+  .cuerpo {
+    flex-direction: column;
+  }
+
+  .lateral {
+    flex: none;
+    width: 100%;
+  }
+
+  .galeria {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .galeria img {
+    width: calc(50% - 3px);
+  }
+}
